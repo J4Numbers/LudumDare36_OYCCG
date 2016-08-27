@@ -12,6 +12,10 @@ int main(int argc, char** argv)
         fprintf(stdout, "Error loading SDL: %s\n", m->get_last_error());
     }
 
+    MDB_Screen* screen = m->request_screen(1280, 720, 0);
+
+    delete screen;
+
     Sleep(5000);
 
     return 0;

@@ -18,6 +18,9 @@
     <ClCompile Include="src\MDB.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\MDB_Screen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\x86\SDL2.lib" />
@@ -28,6 +31,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\MDB.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\MDB_Screen.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
