@@ -3,7 +3,7 @@
 function toucher()
 {
     echo "Creating file $1.$2 in the $MAINPROJ project...";
-    touch $MAINPROJ/$SUBPROJ/$3/$1.$2;
+    touch "$MAINPROJ"/"$SUBPROJ"/"$3"/$1.$2;
     echo "File has been created.";
 }
 
@@ -32,7 +32,7 @@ function create()
 }
 
 MAINPROJ="OnlyYouCanCommitGenocide";
-SUBPROJ="Only\ You\ Can\ Commit\ Genocide";
+SUBPROJ="Only You Can Commit Genocide";
 
 if [[ $1 == "-h" ]]; then
     showHelp;

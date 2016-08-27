@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp">
+    <ClCompile Include="src\MDB.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -25,5 +25,10 @@
     <Library Include="lib\x86\SDL2test.lib" />
     <Library Include="lib\glew32.lib" />
     <Library Include="lib\glew32s.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\MDB.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
