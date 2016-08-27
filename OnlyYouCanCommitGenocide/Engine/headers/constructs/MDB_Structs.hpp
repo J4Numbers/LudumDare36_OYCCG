@@ -14,6 +14,19 @@ struct MDB_Room
     uint32_t flags;
 };
 
+struct MDB_SDLKeyBindings
+{
+    uint32_t mdb_bind;
+    int32_t sdl_bind;
+};
+
+struct MDB_KeyBindings
+{
+    uint32_t mdb_bind;
+    uint32_t key_state;
+    uint32_t action;
+};
+
 struct MDB_Image
 {
     uint32_t img_size;
