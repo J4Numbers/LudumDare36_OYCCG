@@ -25,4 +25,9 @@
 #define MDB_E_FLY_CHARGE_SHOT 0x730A
 #define MDB_E_FLY_SHOT_FIRED  0x730B
 
+//Space of 0x74XX is for different file types
+#define MDB_E_FILE_IMAGE 0x7401
+#define MDB_E_FILE_ANIMATION 0x7402
+#define MDB_E_FILE_ACTOR 0x7403
+
 #endif

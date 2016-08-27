@@ -9,4 +9,10 @@ public:
     const char* what() const throw();
 };
 
+class MDB_IMG_Exception : public std::exception
+{
+public:
+    const char* what() const throw();
+};
+
 #endif

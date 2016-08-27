@@ -9,8 +9,6 @@ int main(int argc, char** argv)
     {
         MDB* m = new MDB();
 
-        fprintf(stdout, "Resource path was at %s\n", m->return_res_path());
-
         MDB_Screen* screen = m->request_screen(1280, 720, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
 
         screen->set_screen_colour(255, 0, 0, 255);
@@ -24,8 +22,13 @@ int main(int argc, char** argv)
     catch (MDB_SDL_Exception&)
     {
         fprintf(stdout, "Error loading SDL: %s\n", MDB::get_last_error());
-        Sleep(5000);
     }
+    catch (MDB_IMG_Exception&)
+    {
+        fprintf(stdout, "Error loading SDL_Image: %s\n", MDB::get_last_img_error());
+    }
+
+    Sleep(5000);
 
     return 0;
 }

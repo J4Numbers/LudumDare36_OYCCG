@@ -83,6 +83,7 @@
   <ItemGroup>
     <ClCompile Include="src\constructs\MDB_Common.cpp" />
     <ClCompile Include="src\constructs\MDB_Exceptions.cpp" />
+    <ClCompile Include="src\constructs\MDB_File.cpp" />
     <ClCompile Include="src\MDB.cpp" />
     <ClCompile Include="src\MDB_Screen.cpp" />
   </ItemGroup>
@@ -92,11 +93,13 @@
     <Library Include="lib\x86\SDL2.lib" />
     <Library Include="lib\x86\SDL2main.lib" />
     <Library Include="lib\x86\SDL2test.lib" />
+    <Library Include="lib\x86\SDL2_image.lib" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\constructs\MDB_Common.hpp" />
     <ClInclude Include="headers\constructs\MDB_Enums.hpp" />
     <ClInclude Include="headers\constructs\MDB_Exceptions.hpp" />
+    <ClInclude Include="headers\constructs\MDB_File.hpp" />
     <ClInclude Include="headers\constructs\MDB_Structs.hpp" />
     <ClInclude Include="headers\MDB.hpp" />
     <ClInclude Include="headers\MDB_Screen.hpp" />
