@@ -6,6 +6,8 @@ MDB::MDB()
     {
         throw MDB_SDL_Exception();
     }
+
+    MDB_Common::get_resource_path(resource_path, "OnlyYouCanCommitGenocide");
 }
 
 MDB::~MDB()
@@ -17,6 +19,12 @@ const char* MDB::get_last_error()
 {
     return SDL_GetError();
 }
+
+char* MDB::return_res_path() const
+{
+    return resource_path;
+}
+
 
 MDB_Screen* MDB::request_screen(int w, int h, int flags)
 {

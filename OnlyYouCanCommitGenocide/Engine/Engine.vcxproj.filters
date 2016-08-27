@@ -13,11 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\exceptions">
-      <UniqueIdentifier>{92819c97-a4ab-4c0b-9ce8-3b19b077f31f}</UniqueIdentifier>
+    <Filter Include="Header Files\constructs">
+      <UniqueIdentifier>{1ad18a60-9b92-44f9-ab49-e9ad11e6c6e8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\exceptions">
-      <UniqueIdentifier>{0bb1bf41-464a-4b87-b83a-2a506f944120}</UniqueIdentifier>
+    <Filter Include="Source Files\constructs">
+      <UniqueIdentifier>{2897903c-d05b-446f-aa09-8e3edc23a17c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,8 +27,11 @@
     <ClCompile Include="src\MDB_Screen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\exceptions\MDB_exception.cpp">
-      <Filter>Source Files\exceptions</Filter>
+    <ClCompile Include="src\constructs\MDB_Exceptions.cpp">
+      <Filter>Source Files\constructs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\constructs\MDB_Common.cpp">
+      <Filter>Source Files\constructs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -45,8 +48,17 @@
     <ClInclude Include="headers\MDB_Screen.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\exceptions\MDB_exception.hpp">
-      <Filter>Header Files\exceptions</Filter>
+    <ClInclude Include="headers\constructs\MDB_Structs.hpp">
+      <Filter>Header Files\constructs</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\constructs\MDB_Exceptions.hpp">
+      <Filter>Header Files\constructs</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\constructs\MDB_Enums.hpp">
+      <Filter>Header Files\constructs</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\constructs\MDB_Common.hpp">
+      <Filter>Header Files\constructs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
