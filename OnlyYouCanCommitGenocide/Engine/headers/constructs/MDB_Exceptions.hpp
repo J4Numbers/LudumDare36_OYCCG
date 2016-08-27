@@ -6,8 +6,7 @@
 class MDB_SDL_Exception : public std::exception
 {
 public:
-    const char* what() const throw()
-    { return "SDL Error\n"; };
+    const char* what() const throw();
 };
 
 #endif

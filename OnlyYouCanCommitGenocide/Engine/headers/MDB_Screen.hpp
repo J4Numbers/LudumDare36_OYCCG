@@ -3,7 +3,7 @@
 
 #include "../include/SDL2/SDL.h"
 
-#include "exceptions/MDB_exception.hpp"
+#include "constructs/MDB_Exceptions.hpp"
 
 #define GLEW_STATIC
 #include "../include/GL/glew.h"

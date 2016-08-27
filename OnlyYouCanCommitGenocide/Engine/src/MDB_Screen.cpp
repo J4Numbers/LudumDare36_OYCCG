@@ -22,6 +22,8 @@ MDB_Screen::MDB_Screen(int width, int height, Uint32 window_flags, Uint32 rend_f
 
 MDB_Screen::~MDB_Screen()
 {
+    SDL_DestroyRenderer(l_renderer);
+    SDL_GL_DeleteContext(l_gl_context);
     SDL_DestroyWindow(l_window);
 }
 

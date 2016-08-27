@@ -20,7 +20,9 @@ function showHelp()
     echo "    -c : Create a new pair of files in the $SUBPROJ project";
     echo "    -s : Create a new .cpp file in the $SUBPROJ project";
     echo "    -n : Create a new .hpp file in the $SUBPROJ project";
-    echo "    -d : Create a new directory in the $SUBPROJ subdirs";
+    echo "    -dc: Create a new directory in the $SUBPROJ subdirs";
+    echo "    -ds: Create a new directory in the $SUBPROJ/src subdir";
+    echo "    -dn: Create a new directory in the $SUBPROJ/headers subdir";
     echo "    -h : See this help screen";
 }
 
@@ -34,9 +36,12 @@ function create()
         toucher "$2" "hpp" "headers";
         valid=1;
     fi
-    if [[ $1 == "-d" ]]; then
-        director "headers" $2;
+    if [[ $1 == "-ds" ]] || [[ $1 == "-dc" ]]; then
 	director "src" $2;
+	valid=1;
+    fi
+    if [[ $1 == "-dn" ]] || [[ $1 == "-dc" ]]; then
+        director "headers" "$2";
 	valid=1;
     fi
     if [[ $valid != 1 ]]; then
