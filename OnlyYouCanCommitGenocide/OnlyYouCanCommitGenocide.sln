@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Only You Can Commit Genocide", "Only You Can Commit Genocide\Only You Can Commit Genocide.vcxproj", "{FD927E1C-8C26-4BB0-BE36-B5236A3A9756}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcxproj", "{8655C65C-C295-4082-BF43-E1D69F5865A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{FD927E1C-8C26-4BB0-BE36-B5236A3A9756}.Debug|Win32.Build.0 = Debug|Win32
 		{FD927E1C-8C26-4BB0-BE36-B5236A3A9756}.Release|Win32.ActiveCfg = Release|Win32
 		{FD927E1C-8C26-4BB0-BE36-B5236A3A9756}.Release|Win32.Build.0 = Release|Win32
+		{8655C65C-C295-4082-BF43-E1D69F5865A8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8655C65C-C295-4082-BF43-E1D69F5865A8}.Debug|Win32.Build.0 = Debug|Win32
+		{8655C65C-C295-4082-BF43-E1D69F5865A8}.Release|Win32.ActiveCfg = Release|Win32
+		{8655C65C-C295-4082-BF43-E1D69F5865A8}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
