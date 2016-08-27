@@ -62,6 +62,9 @@
       </AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -78,6 +81,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\exceptions\MDB_exception.cpp" />
     <ClCompile Include="src\MDB.cpp" />
     <ClCompile Include="src\MDB_Screen.cpp" />
   </ItemGroup>
@@ -89,6 +93,7 @@
     <Library Include="lib\x86\SDL2test.lib" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\exceptions\MDB_exception.hpp" />
     <ClInclude Include="headers\MDB.hpp" />
     <ClInclude Include="headers\MDB_Screen.hpp" />
   </ItemGroup>

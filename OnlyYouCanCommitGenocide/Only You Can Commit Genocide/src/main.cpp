@@ -5,18 +5,25 @@
 
 int main(int argc, char** argv)
 {
-    MDB* m = new MDB();
-
-    if (m->boot() == -1)
+    try
     {
-        fprintf(stdout, "Error loading SDL: %s\n", m->get_last_error());
+        MDB* m = new MDB();
+
+        MDB_Screen* screen = m->request_screen(1280, 720, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+
+        screen->set_screen_colour(255, 0, 0, 255);
+
+        Sleep(5000);
+
+        delete screen;
+
+        delete m;
     }
-
-    MDB_Screen* screen = m->request_screen(1280, 720, 0);
-
-    delete screen;
-
-    Sleep(5000);
+    catch (MDB_SDL_Exception&)
+    {
+        fprintf(stdout, "Error loading SDL: %s\n", SDL_GetError());
+        Sleep(5000);
+    }
 
     return 0;
 }

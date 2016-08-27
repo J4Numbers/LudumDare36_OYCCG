@@ -1,14 +1,16 @@
 #include "../headers/MDB.hpp"
 
 MDB::MDB()
-{}
+{
+    if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
+    {
+        throw MDB_SDL_Exception();
+    }
+}
 
 MDB::~MDB()
-{}
-
-int MDB::boot()
 {
-    return SDL_Init(SDL_INIT_EVERYTHING);
+    SDL_Quit();
 }
 
 const char* MDB::get_last_error()
@@ -18,5 +20,5 @@ const char* MDB::get_last_error()
 
 MDB_Screen* MDB::request_screen(int w, int h, int flags)
 {
-    return new MDB_Screen(w, h, flags);
+    return new MDB_Screen(w, h, flags, SDL_RENDERER_ACCELERATED);
 }

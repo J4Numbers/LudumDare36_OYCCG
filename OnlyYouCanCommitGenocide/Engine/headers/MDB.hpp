@@ -3,6 +3,8 @@
 
 #include "../include/SDL2/SDL.h"
 
+#include "exceptions/MDB_exception.hpp"
+
 #include "MDB_Screen.hpp"
 
 class MDB
@@ -10,7 +12,6 @@ class MDB
 public:
     MDB();
 
-    int boot();
     const char* get_last_error();
 
     MDB_Screen* request_screen(int w, int h, int flags);

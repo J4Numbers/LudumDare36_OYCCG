@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\exceptions">
+      <UniqueIdentifier>{92819c97-a4ab-4c0b-9ce8-3b19b077f31f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\exceptions">
+      <UniqueIdentifier>{0bb1bf41-464a-4b87-b83a-2a506f944120}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MDB.cpp">
@@ -20,6 +26,9 @@
     </ClCompile>
     <ClCompile Include="src\MDB_Screen.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\exceptions\MDB_exception.cpp">
+      <Filter>Source Files\exceptions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -35,6 +44,9 @@
     </ClInclude>
     <ClInclude Include="headers\MDB_Screen.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\exceptions\MDB_exception.hpp">
+      <Filter>Header Files\exceptions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
