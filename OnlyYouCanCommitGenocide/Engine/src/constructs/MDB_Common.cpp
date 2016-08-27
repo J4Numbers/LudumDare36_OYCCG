@@ -34,3 +34,170 @@ void MDB_Common::get_resource_path(char* & point, char* directory)
     }
     
 }
+
+MDB_Point2f::MDB_Point2f() : x(0.0f), y(0.0f)
+{
+}
+
+MDB_Point2f::MDB_Point2f(float x, float y) : x(x), y(y)
+{
+}
+
+MDB_Point2f::MDB_Point2f(const MDB_Point2f& rhs) : x(rhs.x), y(rhs.y)
+{
+}
+
+MDB_Point2f::MDB_Point2f(const MDB_Vector2f& rhs) : x(rhs.x), y(rhs.y)
+{
+}
+
+MDB_Point2f MDB_Point2f::operator+(const MDB_Point2f& rhs) const
+{
+    return MDB_Point2f(x + rhs.x, y + rhs.y);
+}
+
+MDB_Point2f MDB_Point2f::operator+(const MDB_Vector2f& rhs) const
+{
+    return MDB_Point2f(x + rhs.x, y + rhs.y);
+}
+
+MDB_Point2f& MDB_Point2f::operator+=(const MDB_Vector2f& rhs)
+{
+    this->x += rhs.x;
+    this->y += rhs.y;
+
+    return *this;
+}
+
+MDB_Point2f MDB_Point2f::operator-(const MDB_Point2f& rhs) const
+{
+    return MDB_Point2f(x - rhs.x, y - rhs.y);
+}
+
+MDB_Point2f MDB_Point2f::operator-(const MDB_Vector2f& rhs) const
+{
+    return MDB_Point2f(x - rhs.x, y - rhs.y);
+}
+
+MDB_Point2f MDB_Point2f::operator-=(const MDB_Vector2f& rhs)
+{
+    this->x -= rhs.x;
+    this->y -= rhs.y;
+
+    return *this;
+}
+
+MDB_Point2f MDB_Point2f::operator*(const float& rhs) const
+{
+    return MDB_Point2f(x * rhs, y * rhs);
+}
+
+MDB_Point2f MDB_Point2f::operator*(const MDB_Vector2f& rhs) const
+{
+    return MDB_Point2f(x * rhs.x, y * rhs.y);
+}
+
+MDB_Point2f MDB_Point2f::operator/(const float& rhs) const
+{
+    return MDB_Point2f(x / rhs, y / rhs);
+}
+
+MDB_Point2f MDB_Point2f::operator/(const MDB_Vector2f& rhs) const
+{
+    return MDB_Point2f(x / rhs.x, y / rhs.y);
+}
+
+MDB_Point2f MDB_Point2f::operator=(const MDB_Point2f& rhs)
+{
+    if (this == &rhs)
+    {
+        return *this;
+    }
+
+    this->x = rhs.x;
+    this->y = rhs.y;
+
+    return *this;
+}
+
+float MDB_Point2f::dist_between(MDB_Point2f& rhs) const
+{
+    return MDB_Vector2f(this->x - rhs.x, this->y - rhs.y).get_magnitude();
+}
+
+MDB_Vector2f MDB_Point2f::vector_between(MDB_Point2f& rhs) const
+{
+    return MDB_Vector2f(this->x - rhs.x, this->y - rhs.y).normalise();
+}
+
+MDB_Vector2f::MDB_Vector2f() : x(0), y(0)
+{
+}
+
+MDB_Vector2f::MDB_Vector2f(float x, float y) : x(x), y(y)
+{
+}
+
+MDB_Vector2f MDB_Vector2f::operator+(const MDB_Vector2f& rhs) const
+{
+    return MDB_Vector2f(x + rhs.x, y + rhs.y);
+}
+
+MDB_Vector2f MDB_Vector2f::operator+=(const MDB_Vector2f& rhs)
+{
+    this->x += rhs.x;
+    this->y += rhs.y;
+
+    return *this;
+}
+
+MDB_Vector2f MDB_Vector2f::operator-(const MDB_Vector2f& rhs) const
+{
+    return MDB_Vector2f(x - rhs.x, y - rhs.y);
+}
+
+MDB_Vector2f MDB_Vector2f::operator*(const float& rhs) const
+{
+    return MDB_Vector2f(x * rhs, y * rhs);
+}
+
+MDB_Vector2f MDB_Vector2f::operator/(const float& rhs) const
+{
+    return MDB_Vector2f(x / rhs, y / rhs);
+}
+
+float MDB_Vector2f::dot_product(const MDB_Vector2f& rhs) const
+{
+    return (x * rhs.x) + (y * rhs.y);
+}
+
+MDB_Vector2f MDB_Vector2f::operator=(const MDB_Vector2f& rhs)
+{
+    if (this == &rhs)
+    {
+        return *this;
+    }
+    x = rhs.x;
+    y = rhs.y;
+    return *this;
+}
+
+bool MDB_Vector2f::operator==(const MDB_Vector2f& rhs) const
+{
+    return (x == rhs.x) && (y == rhs.y);
+}
+
+bool MDB_Vector2f::operator!=(const MDB_Vector2f& rhs) const
+{
+    return (x != rhs.x) || (y != rhs.y);
+}
+
+MDB_Vector2f MDB_Vector2f::normalise() const
+{
+    return *this / get_magnitude();
+}
+
+float MDB_Vector2f::get_magnitude() const
+{
+    return sqrt(pow(x, 2) + pow(y, 2));
+}
