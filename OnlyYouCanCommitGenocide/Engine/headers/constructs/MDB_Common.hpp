@@ -125,7 +125,12 @@ public:
     virtual void checkSwitchState() = 0;
 
     uint32_t get_shape_type();
-    MDB_Point2f get_origin();
+    
+    MDB_Point2f get_origin() const;
+    virtual uint32_t get_width() const = 0;
+    virtual uint32_t get_height() const = 0;
+
+    void set_origin(MDB_Point2f _origin);
 };
 
 class MDB_Rectangle : protected MDB_Shape
@@ -135,8 +140,12 @@ public:
 
     MDB_Rectangle(int x, int y, int w, int h);
     MDB_Rectangle(MDB_Point2f origin, int w, int h);
-    MDB_Rectangle(SDL_Rect& rhs);
+    MDB_Rectangle(MDB_Shape* & rhs);
+    MDB_Rectangle(SDL_Rect & rhs);
     virtual ~MDB_Rectangle();
+
+    virtual uint32_t get_width() const;
+    virtual uint32_t get_height() const;
 
     SDL_Rect generate_rectangle();
 };
@@ -148,7 +157,11 @@ public:
 
     MDB_Circle(int x, int y, int radius);
     MDB_Circle(MDB_Point2f origin, int radius);
+    MDB_Circle(MDB_Shape* & rhs);
     virtual ~MDB_Circle();
+
+    virtual uint32_t get_width() const;
+    virtual uint32_t get_height() const;
 
     SDL_Rect generate_rectangle();
 };

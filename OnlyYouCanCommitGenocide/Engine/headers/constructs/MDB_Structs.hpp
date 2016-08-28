@@ -91,6 +91,25 @@ struct MDB_TextLocation
     SDL_Texture* t;
 };
 
+struct MDB_RectShape
+{
+    int32_t x, y;
+    uint32_t w, h;
+};
+
+struct MDB_CircShape
+{
+    int32_t x, y;
+    uint32_t radius;
+};
+
+struct MDB_FakeShape
+{
+    int32_t x, y;
+    void* shape;
+    uint32_t shape_type;
+};
+
 struct MDB_Collision
 {
     void* object_a;

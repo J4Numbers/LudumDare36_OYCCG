@@ -9,6 +9,7 @@
 
 #include "MDB_Structs.hpp"
 #include "MDB_Common.hpp"
+#include "MDB_Maths.hpp"
 #include "MDB_TextureState.hpp"
 
 #include "MDB_Maths.hpp"
@@ -131,11 +132,6 @@ public:
     MDB_Vector2f* getPreviousDisplacement();
 
     /**
-    * @return The mass of our object
-    */
-    float getMass();
-
-    /**
     * Test a move on our object in order to see whether or not we would be
     * in a failing position if we did this move (so if we found a collision
     * or similar)
@@ -147,18 +143,15 @@ public:
     * @return              The shape of that resulting move that we could then
     *                          test in other areas of the code
     */
-    MDB_Shape* testMovement(MDB_Vector2f& proposedMove) const;
-
-    /**
-    * @return The gravity of the situation.
-    */
-    float getPersonalGravity() const;
+    MDB_FakeShape* testMovement(MDB_Vector2f& proposedMove) const;
 
 protected:
+    MDB_FakeShape* copy_shape() const;
+
     /**
     * The texture dimensions of this actor
     */
-    MDB_TextureAnimationFile* texture_dims;
+    MDB_TextureState* texture_dims;
 
     /**
     * The velocity of the actor
@@ -192,11 +185,6 @@ protected:
     const float MOVEMENT_CONSTANT;
 
     /**
-     * Mass of the object
-     */
-    const float MASS;
-
-    /**
      * Damping constant
      */
     const float DAMPING;
@@ -211,11 +199,6 @@ protected:
     * Identical to moveX
     */
     float moveY;
-
-    /**
-    * The personal gravity of this actor
-    */
-    float personalGravity;
 
     /**
     * Unused ticker previously used for frame counting

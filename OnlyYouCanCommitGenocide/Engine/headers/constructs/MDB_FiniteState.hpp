@@ -1,6 +1,8 @@
 #ifndef MDB_FINITESTATE_H
 #define MDB_FINITESTATE_H
 
+#include <cstdint>
+
 //So, I guess that the state machine should be a collection of Rules,
 // where rules are game logic items that determine what should be done...
 //

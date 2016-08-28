@@ -15,7 +15,7 @@
  * (which honestly doesn't need to be here), to the more complex collision
  * checking which goes on in here and covers more than I'd personally like...
  */
-class MDB_Calc
+class MDB_Maths
 {
 public:
     static MDB_Point2f CalculateMovement(MDB_Point2f original, MDB_Vector2f movement);

@@ -62,7 +62,8 @@
 #define MDB_E_FILE_IO_RW 0x7703
 
 //Space of 0x78XX is for shape types
-#define MDB_E_SHAPE_RECT   0x7801
-#define MDB_E_SHAPE_CIRCLE 0x7802
+#define MDB_E_SHAPE_RECT    0x7801
+#define MDB_E_SHAPE_CIRCLE  0x7802
+#define MDB_E_SHAPE_UNKNOWN 0x7803
 
 #endif
