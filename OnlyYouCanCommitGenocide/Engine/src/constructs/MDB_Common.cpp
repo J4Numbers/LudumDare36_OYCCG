@@ -1,5 +1,8 @@
 #include "../../headers/constructs/MDB_Common.hpp"
 
+MDB* MDB_Common::central_mdb = nullptr;
+MDB_Screen* MDB_Common::central_mdb_screen = nullptr;
+
 void MDB_Common::get_resource_path(char* & point, char* directory)
 {
 #ifdef _WIN32
@@ -71,6 +74,26 @@ void MDB_Common::pack_char_array(char*& byte_array, uint8_t bytes, ...)
     va_end(byte_list);
 }
 
+void MDB_Common::load_mdb(MDB* _central_mdb)
+{
+    MDB_Common::central_mdb = _central_mdb;
+}
+
+void MDB_Common::load_mdb_screen(MDB_Screen* _mdb_screen)
+{
+    MDB_Common::central_mdb_screen = _mdb_screen;
+}
+
+
+MDB* MDB_Common::request_mdb()
+{
+    return MDB_Common::central_mdb;
+}
+
+MDB_Screen* MDB_Common::request_mdb_screen()
+{
+    return MDB_Common::central_mdb_screen;
+}
 
 MDB_Point2f::MDB_Point2f() : x(0.0f), y(0.0f)
 {
@@ -155,6 +178,16 @@ MDB_Point2f MDB_Point2f::operator=(const MDB_Point2f& rhs)
     this->y = rhs.y;
 
     return *this;
+}
+
+bool MDB_Point2f::operator==(const MDB_Point2f& rhs) const
+{
+    return (x == rhs.x) && (y == rhs.y);
+}
+
+bool MDB_Point2f::operator!=(const MDB_Point2f& rhs) const
+{
+    return (x != rhs.x) || (y != rhs.y);
 }
 
 float MDB_Point2f::dist_between(MDB_Point2f& rhs) const

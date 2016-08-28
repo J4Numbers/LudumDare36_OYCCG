@@ -15,6 +15,7 @@ MDB::MDB() : quit(false)
         throw MDB_IMG_Exception();
     }
 
+    MDB_Common::load_mdb(this);
     MDB_Common::get_resource_path(resource_path, "OnlyYouCanCommitGenocide");
 }
 
@@ -38,10 +39,14 @@ char* MDB::return_res_path() const
     return resource_path;
 }
 
-
-MDB_Screen* MDB::request_screen(int w, int h, int flags)
+MDB_Screen* MDB::generate_screen(int w, int h, int flags)
 {
     return new MDB_Screen(w, h, flags, SDL_RENDERER_ACCELERATED);
+}
+
+MDB_Screen* MDB::request_screen()
+{
+    return MDB_Common::request_mdb_screen();
 }
 
 bool MDB::quitting()

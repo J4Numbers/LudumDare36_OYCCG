@@ -84,4 +84,11 @@ struct MDB_DropChance
     char* drop;
 };
 
+struct MDB_TextLocation
+{
+    int32_t x, y;
+    uint32_t w, h;
+    SDL_Texture* t;
+};
+
 #endif

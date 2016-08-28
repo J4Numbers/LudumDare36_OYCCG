@@ -18,6 +18,8 @@ MDB_Screen::MDB_Screen(int width, int height, Uint32 window_flags, Uint32 rend_f
     }
     
     l_renderer = SDL_CreateRenderer(l_window, -1, rend_flags);
+
+    MDB_Common::load_mdb_screen(this);
 }
 
 MDB_Screen::~MDB_Screen()
@@ -32,4 +34,8 @@ void MDB_Screen::set_screen_colour(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
     glClearColor(r, g, b, a);
     glClear(GL_COLOR_BUFFER_BIT);
     SDL_GL_SwapWindow(l_window);
+}
+
+void MDB_Screen::manageEvent(SDL_Event e)
+{
 }

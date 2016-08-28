@@ -9,7 +9,9 @@ int main(int argc, char** argv)
     {
         MDB* m = new MDB();
 
-        MDB_Screen* screen = m->request_screen(1280, 720, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+        m->generate_screen(1280, 720, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+
+        MDB_Screen* screen = m->request_screen();
 
         screen->set_screen_colour(255, 0, 0, 255);
 

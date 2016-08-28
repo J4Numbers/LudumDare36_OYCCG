@@ -27,7 +27,9 @@ public:
     static const char* get_last_error();
     static const char* get_last_img_error();
 
-    MDB_Screen* request_screen(int w, int h, int flags);
+    MDB_Screen* generate_screen(int w, int h, int flags);
+
+    MDB_Screen* request_screen();
 
     char* return_res_path() const;
 

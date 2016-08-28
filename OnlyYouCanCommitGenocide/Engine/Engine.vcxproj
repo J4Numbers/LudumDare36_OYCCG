@@ -84,6 +84,7 @@
     <ClCompile Include="src\constructs\MDB_Common.cpp" />
     <ClCompile Include="src\constructs\MDB_Exceptions.cpp" />
     <ClCompile Include="src\constructs\MDB_File.cpp" />
+    <ClCompile Include="src\constructs\MDB_System.cpp" />
     <ClCompile Include="src\MDB.cpp" />
     <ClCompile Include="src\MDB_Screen.cpp" />
   </ItemGroup>
@@ -100,8 +101,15 @@
     <ClInclude Include="headers\constructs\MDB_Enums.hpp" />
     <ClInclude Include="headers\constructs\MDB_Exceptions.hpp" />
     <ClInclude Include="headers\constructs\MDB_File.hpp" />
+    <ClInclude Include="headers\constructs\MDB_Maths.hpp" />
     <ClInclude Include="headers\constructs\MDB_Structs.hpp" />
+    <ClInclude Include="headers\constructs\MDB_System.hpp" />
     <ClInclude Include="headers\MDB.hpp" />
+    <ClInclude Include="headers\MDB_Audio.hpp" />
+    <ClInclude Include="headers\MDB_Events.hpp" />
+    <ClInclude Include="headers\MDB_Inputs.hpp" />
+    <ClInclude Include="headers\MDB_Levels.hpp" />
+    <ClInclude Include="headers\MDB_Physics.hpp" />
     <ClInclude Include="headers\MDB_Screen.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

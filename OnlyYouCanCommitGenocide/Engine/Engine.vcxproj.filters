@@ -36,6 +36,9 @@
     <ClCompile Include="src\constructs\MDB_File.cpp">
       <Filter>Source Files\constructs</Filter>
     </ClCompile>
+    <ClCompile Include="src\constructs\MDB_System.cpp">
+      <Filter>Source Files\constructs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\x86\SDL2.lib" />
@@ -65,6 +68,27 @@
       <Filter>Header Files\constructs</Filter>
     </ClInclude>
     <ClInclude Include="headers\constructs\MDB_File.hpp">
+      <Filter>Header Files\constructs</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\constructs\MDB_System.hpp">
+      <Filter>Header Files\constructs</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\MDB_Audio.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\MDB_Events.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\MDB_Inputs.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\MDB_Levels.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\MDB_Physics.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\constructs\MDB_Maths.hpp">
       <Filter>Header Files\constructs</Filter>
     </ClInclude>
   </ItemGroup>
