@@ -59,18 +59,18 @@ public:
 
     void physicsLoop();
 
-    void addObjects(std::vector<MDB_Shape*> objects);
+    void addObjects(std::vector<MDB_Actor*> objects);
 
-    int detect_collisions(MDB_Shape* proposed_state, MDB_Vector2f our_vel, std::vector<MDB_Collision*> &collisions);
+    int detect_collisions(MDB_Actor* proposed_state, MDB_Vector2f our_vel, std::vector<MDB_Collision*> &collisions);
 
     void resolve_collisions(std::vector<MDB_Collision*> collisions);
 
     static int thread_wrapper(void* ptr);
 
 private:
-    int broadphase_actor_cull(MDB_Shape* us, std::vector<MDB_Shape*> their_actors, std::vector<MDB_Shape*> &collisions);
+    int broadphase_actor_cull(MDB_Actor* us, std::vector<MDB_Actor*> their_actors, std::vector<MDB_Actor*> &collisions);
     int narrowphase_cull(
-        MDB_Shape* ours, MDB_Vector2f our_vel, std::vector<MDB_Shape*> their_actors, std::vector<MDB_Collision*> &collisions
+        MDB_Actor* ours, MDB_Vector2f our_vel, std::vector<MDB_Actor*> their_actors, std::vector<MDB_Collision*> &collisions
         );
 
     void addActor(MDB_Actor* newActor);
