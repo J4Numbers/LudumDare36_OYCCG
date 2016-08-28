@@ -114,56 +114,57 @@ class MDB_Shape : protected MDB_FiniteState
 {
 protected:
     uint32_t shape_type;
-    MDB_Point2f centre;
+    MDB_Point2f* centre;
 
 public:
-    MDB_Shape(MDB_Point2f origin, uint32_t obj_shape);
+    MDB_Shape(MDB_Point2f origin, uint32_t obj_shape, uint32_t starting_state);
     virtual ~MDB_Shape();
 
     virtual void move() = 0;
 
     virtual void checkSwitchState() = 0;
 
-    uint32_t get_shape_type();
+    uint32_t get_shape_type() const;
     
     MDB_Point2f get_origin() const;
     virtual uint32_t get_width() const = 0;
     virtual uint32_t get_height() const = 0;
+    virtual SDL_Rect generate_rectangle() const = 0;
 
     void set_origin(MDB_Point2f _origin);
 };
 
 class MDB_Rectangle : protected MDB_Shape
 {
-public:
+protected:
     uint32_t w, h;
 
-    MDB_Rectangle(int x, int y, int w, int h);
-    MDB_Rectangle(MDB_Point2f origin, int w, int h);
-    MDB_Rectangle(MDB_Shape* & rhs);
+public:
+    MDB_Rectangle(int _x, int _y, int _w, int _h);
+    MDB_Rectangle(MDB_Point2f _origin, int _w, int _h);
     MDB_Rectangle(SDL_Rect & rhs);
     virtual ~MDB_Rectangle();
 
     virtual uint32_t get_width() const;
     virtual uint32_t get_height() const;
 
-    SDL_Rect generate_rectangle();
+    virtual SDL_Rect generate_rectangle() const;
 };
 
 class MDB_Circle : protected MDB_Shape
 {
-public:
+protected:
     uint32_t radius;
 
-    MDB_Circle(int x, int y, int radius);
-    MDB_Circle(MDB_Point2f origin, int radius);
-    MDB_Circle(MDB_Shape* & rhs);
+public:
+    MDB_Circle(int _x, int _y, int _radius);
+    MDB_Circle(MDB_Point2f _origin, int _radius);
     virtual ~MDB_Circle();
 
     virtual uint32_t get_width() const;
     virtual uint32_t get_height() const;
 
-    SDL_Rect generate_rectangle();
+    virtual SDL_Rect generate_rectangle() const;
 };
 
 const MDB_Vector2f ZERO_VECTOR(0.0f, 0.0f);

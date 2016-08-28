@@ -296,14 +296,97 @@ MDB_Vector2f MDB_Point2f::vector_between(MDB_Point2f& rhs) const
  * -----------------------------
  */
 
+MDB_Shape::MDB_Shape(MDB_Point2f origin, uint32_t obj_shape, uint32_t starting_state) : MDB_FiniteState(starting_state),
+                    shape_type(obj_shape), centre(new MDB_Point2f(origin))
+{
+}
+
+MDB_Shape::~MDB_Shape()
+{
+    delete centre;
+}
+
+MDB_Point2f MDB_Shape::get_origin() const
+{
+    return *centre;
+}
+
+void MDB_Shape::set_origin(MDB_Point2f _origin)
+{
+    *centre = _origin;
+}
+
+uint32_t MDB_Shape::get_shape_type() const
+{
+    return shape_type;
+}
+
 /**
  * ---------------------------------
  * --- MDB_Rectangle Definitions ---
  * ---------------------------------
  */
 
+MDB_Rectangle::MDB_Rectangle(int _x, int _y, int _w, int _h) : MDB_Shape(MDB_Point2f(_x, _y), MDB_E_SHAPE_RECT, MDB_E_STATIC), w(_w), h(_h)
+{
+}
+
+MDB_Rectangle::MDB_Rectangle(MDB_Point2f _origin, int _w, int _h) : MDB_Shape(_origin, MDB_E_SHAPE_RECT, MDB_E_STATIC), w(_w), h(_h)
+{
+}
+
+MDB_Rectangle::MDB_Rectangle(SDL_Rect& rhs) : MDB_Shape(MDB_Point2f(rhs.x, rhs.y), MDB_E_SHAPE_RECT, MDB_E_STATIC), w(rhs.w), h(rhs.h)
+{
+}
+
+MDB_Rectangle::~MDB_Rectangle()
+{
+}
+
+uint32_t MDB_Rectangle::get_height() const
+{
+    return h;
+}
+
+uint32_t MDB_Rectangle::get_width() const
+{
+    return w;
+}
+
+SDL_Rect MDB_Rectangle::generate_rectangle() const
+{
+    return { get_origin().x, get_origin().y, w, h };
+}
+
 /**
  * ------------------------------
  * --- MDB_Circle Definitions ---
  * ------------------------------
  */
+
+MDB_Circle::MDB_Circle(int _x, int _y, int _radius) : MDB_Shape(MDB_Point2f(_x, _y), MDB_E_SHAPE_CIRCLE, MDB_E_STATIC), radius(_radius)
+{
+}
+
+MDB_Circle::MDB_Circle(MDB_Point2f _origin, int _radius) : MDB_Shape(_origin, MDB_E_SHAPE_CIRCLE, MDB_E_STATIC), radius(_radius)
+{
+}
+
+MDB_Circle::~MDB_Circle()
+{
+}
+
+uint32_t MDB_Circle::get_height() const
+{
+    return radius + radius;
+}
+
+uint32_t MDB_Circle::get_width() const
+{
+    return radius + radius;
+}
+
+SDL_Rect MDB_Circle::generate_rectangle() const
+{
+    return{ get_origin().x, get_origin().y, radius + radius, radius + radius };
+}
