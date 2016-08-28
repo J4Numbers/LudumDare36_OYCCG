@@ -81,11 +81,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\constructs\MDB_Actors.cpp" />
     <ClCompile Include="src\constructs\MDB_Common.cpp" />
     <ClCompile Include="src\constructs\MDB_Exceptions.cpp" />
     <ClCompile Include="src\constructs\MDB_File.cpp" />
+    <ClCompile Include="src\constructs\MDB_FiniteState.cpp" />
+    <ClCompile Include="src\constructs\MDB_Maths.cpp" />
     <ClCompile Include="src\constructs\MDB_System.cpp" />
+    <ClCompile Include="src\constructs\MDB_TextureState.cpp" />
     <ClCompile Include="src\MDB.cpp" />
+    <ClCompile Include="src\MDB_Audio.cpp" />
+    <ClCompile Include="src\MDB_Events.cpp" />
+    <ClCompile Include="src\MDB_Inputs.cpp" />
+    <ClCompile Include="src\MDB_Levels.cpp" />
+    <ClCompile Include="src\MDB_Physics.cpp" />
     <ClCompile Include="src\MDB_Screen.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -97,13 +106,16 @@
     <Library Include="lib\x86\SDL2_image.lib" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\constructs\MDB_Actors.hpp" />
     <ClInclude Include="headers\constructs\MDB_Common.hpp" />
     <ClInclude Include="headers\constructs\MDB_Enums.hpp" />
     <ClInclude Include="headers\constructs\MDB_Exceptions.hpp" />
     <ClInclude Include="headers\constructs\MDB_File.hpp" />
+    <ClInclude Include="headers\constructs\MDB_FiniteState.hpp" />
     <ClInclude Include="headers\constructs\MDB_Maths.hpp" />
     <ClInclude Include="headers\constructs\MDB_Structs.hpp" />
     <ClInclude Include="headers\constructs\MDB_System.hpp" />
+    <ClInclude Include="headers\constructs\MDB_TextureState.hpp" />
     <ClInclude Include="headers\MDB.hpp" />
     <ClInclude Include="headers\MDB_Audio.hpp" />
     <ClInclude Include="headers\MDB_Events.hpp" />

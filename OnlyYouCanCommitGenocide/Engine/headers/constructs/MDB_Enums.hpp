@@ -28,6 +28,8 @@
 #define MDB_E_ROLL_LEFT       0x730D
 
 //Space of 0x74XX is for different file types
+#define MDB_E_ENGINE_PREABLE 0xC5D1E33C
+#define MDB_E_FILE_PREABLE   0x7400
 #define MDB_E_FILE_IMAGE     0x7401
 #define MDB_E_FILE_ANIMATION 0x7402
 #define MDB_E_FILE_ACTOR     0x7403
