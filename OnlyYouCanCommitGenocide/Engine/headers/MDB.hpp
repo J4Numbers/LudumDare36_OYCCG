@@ -18,6 +18,8 @@ class MDB
 {
 private:
     char * resource_path;
+    bool quit;
+    uint32_t start, current;
 
 public:
     MDB();
@@ -31,6 +33,10 @@ public:
 
     void generate_file(char* file_name, std::vector<void*> file_data, uint32_t file_type);
     void read_file(char* file_name, uint32_t &type);
+
+    void game_step();
+
+    bool quitting();
 
     ~MDB();
 };

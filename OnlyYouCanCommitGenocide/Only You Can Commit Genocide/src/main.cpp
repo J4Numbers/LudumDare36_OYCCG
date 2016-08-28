@@ -13,7 +13,10 @@ int main(int argc, char** argv)
 
         screen->set_screen_colour(255, 0, 0, 255);
 
-        Sleep(5000);
+        do
+        {
+            m->game_step();
+        } while (!m->quitting());
 
         delete screen;
 

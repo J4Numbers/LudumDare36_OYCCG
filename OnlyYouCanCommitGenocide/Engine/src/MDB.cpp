@@ -1,11 +1,14 @@
 #include "../headers/MDB.hpp"
 
-MDB::MDB()
+MDB::MDB() : quit(false)
 {
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
     {
         throw MDB_SDL_Exception();
     }
+
+    start = SDL_GetTicks();
+    current = SDL_GetTicks();
 
     if (IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG)
     {
@@ -39,4 +42,19 @@ char* MDB::return_res_path() const
 MDB_Screen* MDB::request_screen(int w, int h, int flags)
 {
     return new MDB_Screen(w, h, flags, SDL_RENDERER_ACCELERATED);
+}
+
+bool MDB::quitting()
+{
+    return quit;
+}
+
+void MDB::game_step()
+{
+    current = SDL_GetTicks();
+
+    if (current - start > 10000)
+    {
+        quit = true;
+    }
 }
