@@ -31,6 +31,8 @@
 #define MDB_E_FILE_IMAGE     0x7401
 #define MDB_E_FILE_ANIMATION 0x7402
 #define MDB_E_FILE_ACTOR     0x7403
+#define MDB_E_FILE_AUDIO     0x7404
+#define MDB_E_FILE_CONFIG    0x7405
 
 //Space of 0x75XX is for key presses
 #define MDB_E_MOUSE_1   0x7501
@@ -52,5 +54,11 @@
 #define MDB_E_BUTTON_PRESSED  0x7601
 #define MDB_E_BUTTON_HELD     0x7602
 #define MDB_E_BUTTON_RELEASED 0x7603
+
+//Space of 0x77XX is for file I/O modes
+// OR-ABLE
+#define MDB_E_FILE_IO_R  0x7701
+#define MDB_E_FILE_IO_W  0x7702
+#define MDB_E_FILE_IO_RW 0x7703
 
 #endif

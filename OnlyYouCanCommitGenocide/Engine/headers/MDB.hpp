@@ -1,6 +1,8 @@
 #ifndef MDB_H
 #define MDB_H
 
+#include <vector>
+
 #include "../include/SDL2/SDL.h"
 #include "../include/SDL2/SDL_image.h"
 
@@ -26,6 +28,9 @@ public:
     MDB_Screen* request_screen(int w, int h, int flags);
 
     char* return_res_path() const;
+
+    void generate_file(char* file_name, std::vector<void*> file_data, uint32_t file_type);
+    void read_file(char* file_name, uint32_t &type);
 
     ~MDB();
 };

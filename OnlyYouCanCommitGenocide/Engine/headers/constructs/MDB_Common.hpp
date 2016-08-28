@@ -2,16 +2,32 @@
 #define MDB_COMMON_H
 
 #include <string>
+#include <vector>
 
 #include "../../include/SDL2/SDL.h"
 
 #include "MDB_Exceptions.hpp"
+#include "MDB_File.hpp"
 
 class MDB_Common
 {
+private:
+    static MDB_File* get_file_for_writing(char* file_name, uint32_t file_type);
+    static MDB_File* get_file_for_reading(char* file_name, uint32_t file_type);
+    static MDB_File* get_file_for_readwrite(char* file_name, uint32_t file_type);
+    static MDB_File* get_file_for_rw(char* file_name, char* mode, uint32_t mdb_file_mode, uint32_t file_type);
+    static MDB_File* get_file(SDL_RWops* file, uint32_t mode, uint32_t file_type);
+
+    static void pack_char_array(char* &byte_array, uint8_t bytes ... );
+    static uint32_t unpack_char_array(char* &byte_array);
 
 public:
     static void get_resource_path(char* & point, char* directory);
+
+    static void generate_image_file(char* file_name, std::vector<void*> file_data);
+    static void generate_animation_file(char* file_name, std::vector<void*> file_data);
+    static void generate_actor_file(char* file_name, std::vector<void*> file_data);
+    static void generate_config_file(char* file_name, std::vector<void*> file_data);
 
 };
 

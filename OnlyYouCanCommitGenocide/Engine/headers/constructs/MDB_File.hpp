@@ -22,7 +22,7 @@ public:
     /**
      * Construct our object from a data object and specify our mode
      */
-    MDB_File(SDL_RWops* dataObj, uint8_t mode);
+    MDB_File(SDL_RWops* dataObj, uint32_t mode, uint32_t file_type);
     ~MDB_File();
 
     /**
@@ -101,7 +101,7 @@ private:
     /**
      * The IO mode for the file (read/write locked)
      */
-    uint8_t mode;
+    uint32_t mode;
 
     /**
      * The type of file we're looking at (unused)

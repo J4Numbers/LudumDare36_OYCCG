@@ -1,15 +1,15 @@
 #include "../../headers/constructs/MDB_File.hpp"
 
-/*
-Start work on differentiating different files (level files, etc.)
-Possibly with a preamble header in a file of 4 8-bit numbers before
-launching into the actual files.
-*/
+/**
+ * Start work on differentiating different files (level files, etc.)
+ * Possibly with a preamble header in a file of 4 8-bit numbers before
+ * launching into the actual files.
+ */
 MDB_File::MDB_File(SDL_RWops* data) : dataObj(data), mode(0x03)
 {
 }
 
-MDB_File::MDB_File(SDL_RWops* data, uint8_t m) : dataObj(data), mode(m)
+MDB_File::MDB_File(SDL_RWops* data, uint32_t m, uint32_t t) : dataObj(data), mode(m), filetype(t)
 {
 }
 
@@ -43,7 +43,7 @@ int MDB_File::setCurrentPoisition(int startPoint)
 
 int MDB_File::gradualRead(int size, char* buff)
 {
-    if (mode & 0x01)
+    if (mode & MDB_E_FILE_IO_R == MDB_E_FILE_IO_R)
     {
         return SDL_RWread(dataObj, buff, 1, size);
     }
@@ -52,7 +52,7 @@ int MDB_File::gradualRead(int size, char* buff)
 
 int MDB_File::fullRead(char* buff)
 {
-    if (mode & 0x01)
+    if (mode & MDB_E_FILE_IO_R == MDB_E_FILE_IO_R)
     {
         setCurrentPoisition(0);
         return SDL_RWread(dataObj, buff, getStreamSize(), 1);
@@ -62,7 +62,7 @@ int MDB_File::fullRead(char* buff)
 
 int MDB_File::writeData(int size, char* buffer)
 {
-    if (mode & 0x02)
+    if (mode & MDB_E_FILE_IO_W == MDB_E_FILE_IO_W)
     {
         //Check if erronous and also move the pointer within the file to the new place
         return SDL_RWwrite(dataObj, buffer, 1, size);
