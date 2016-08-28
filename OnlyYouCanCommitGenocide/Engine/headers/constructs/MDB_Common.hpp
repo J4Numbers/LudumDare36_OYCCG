@@ -8,6 +8,7 @@
 
 #include "MDB_Exceptions.hpp"
 #include "MDB_File.hpp"
+#include "MDB_FiniteState.hpp"
 
 class MDB;
 class MDB_Screen;
@@ -109,7 +110,7 @@ public:
     MDB_Vector2f vector_between(MDB_Point2f& rhs) const;
 };
 
-class MDB_Shape
+class MDB_Shape : protected MDB_FiniteState
 {
 protected:
     uint32_t shape_type;
@@ -120,6 +121,8 @@ public:
     virtual ~MDB_Shape();
 
     virtual void move() = 0;
+
+    virtual void checkSwitchState() = 0;
 
     uint32_t get_shape_type();
     MDB_Point2f get_origin();

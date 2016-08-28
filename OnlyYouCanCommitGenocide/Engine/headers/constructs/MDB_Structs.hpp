@@ -69,7 +69,7 @@ struct MDB_AttackChance
     float chance;
 };
 
-struct MDB_Actor
+struct MDB_ActorVariations
 {
     uint32_t health;
 //See MDB_E_ 0x72XX spaces
@@ -89,6 +89,18 @@ struct MDB_TextLocation
     int32_t x, y;
     uint32_t w, h;
     SDL_Texture* t;
+};
+
+struct MDB_Collision
+{
+    void* object_a;
+    void* object_b;
+
+    float joint_vel_x, joint_vel_y;
+
+    float contact_point_x, contact_point_y;
+    float contact_normal_x, contact_normal_y;
+    float contact_depth;
 };
 
 #endif
