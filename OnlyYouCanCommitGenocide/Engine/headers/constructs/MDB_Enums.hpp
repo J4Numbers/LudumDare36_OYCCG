@@ -66,4 +66,10 @@
 #define MDB_E_SHAPE_CIRCLE  0x7802
 #define MDB_E_SHAPE_UNKNOWN 0x7803
 
+//Space of 0x79XX is for collisions and collision types
+#define MDB_E_COLL_NONE          0x7901
+#define MDB_E_COLL_RECT_RECT     0x7902
+#define MDB_E_COLL_RECT_CIRLE    0x7903
+#define MDB_E_COLL_CIRCLE_CIRCLE 0x7904
+
 #endif

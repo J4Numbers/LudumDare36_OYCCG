@@ -22,19 +22,17 @@ public:
 
     static bool HasCollided(MDB_Shape* a, MDB_Shape* b, MDB_Vector2f vel_a, MDB_Vector2f vel_b, MDB_Collision* & collision);
     static bool CircleCircleCollision(MDB_Point2f our_centre, float our_radius, MDB_Point2f their_centre, float their_radius);
-    static bool RectRectCollision(MDB_Point2f our_centre, MDB_Rectangle* our_dims, MDB_Point2f their_centre, MDB_Rectangle* their_dims);
-    static bool CircleRectCollision(MDB_Point2f cir_centre, float cir_radius, MDB_Point2f rect_centre, MDB_Rectangle* rect_dims);
+    static bool RectRectCollision(MDB_Point2f our_centre, SDL_Rect our_dims, MDB_Point2f their_centre, SDL_Rect their_dims);
+    static bool CircleRectCollision(MDB_Point2f cir_centre, float cir_radius, MDB_Point2f rect_centre, SDL_Rect rect_dims);
 
-    static bool InsideBox(MDB_Point2f test_point, MDB_Rectangle* rect, float ext);
-    static bool InsideCircle(MDB_Point2f test_point, MDB_Circle* circ, float ext);
+    static bool InsideBox(MDB_Point2f test_point, SDL_Rect rect, float ext);
+    static bool InsideCircle(MDB_Point2f test_point, MDB_Point2f centre, float radius, float ext);
 
-    static bool IntersectRectangleAndLine(MDB_Point2f rect_centre, MDB_Rectangle* rect_dims, MDB_Point2f* first_point, MDB_Point2f* second_point);
-
-    static MDB_Vector2f GetWidthAndHeight(MDB_Shape* a);
+    static bool IntersectRectangleAndLine(MDB_Point2f rect_centre, SDL_Rect rect_dims, MDB_Point2f* first_point, MDB_Point2f* second_point);
 
     static SDL_Rect* CreateRectangle(MDB_Shape* shape, int screen_width, int screen_height, MDB_Vector2f camera_offset);
     static SDL_Rect* CreateTextRectangle(MDB_TextLocation* text, int screen_width, int screen_height, MDB_Vector2f camera_offset);
-    static MDB_Vector2f GenerateBlockNormal(MDB_Point2f collision_point, MDB_Vector2f coll_dims, MDB_Point2f rect_centre, MDB_Rectangle* rect_dims, MDB_Point2f* point_on_plane);
+    static MDB_Vector2f GenerateBlockNormal(MDB_Point2f collision_point, MDB_Vector2f coll_dims, MDB_Point2f rect_centre, SDL_Rect rect_dims, MDB_Point2f* point_on_plane);
 
     static MDB_Vector2f SymplecticEulerIntegration(MDB_Vector2f velocity, MDB_Vector2f acceleration, float time, MDB_Vector2f &newVelocity);
     static float SymplepticEulerImpact(float elasticity, MDB_Vector2f contact_normal, MDB_Vector2f joint_velocity, float mass_a, float mass_b);
